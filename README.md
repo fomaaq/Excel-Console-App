@@ -3,6 +3,69 @@ This is a console application that uses the Pandas library to convert an order f
 
 -- --
 
+## Preview
+
+![]()
+
+-- --
+
+## App creation motivation
+
+I created this excel_console_app for:
+- creating a console app
+- study the library for working with dataframes
+- implementations of excel file parsing
+- simplifying the life of my wife, who will be able to do her job faster and easier with this app
+
+-- --
+
+## How to use
+
+To launch the application, you will need the order and price list files, which must necessarily match the sample
+
+The following arguments must be entered in the console:
+
+    order_path -- path to the order file
+
+    price_list_path -- path to the price list file
+
+    file_name -- name of the invoice file to be created
+
+App checks that the arguments are entered and starts its work:
+1) checks that a file with the same name as you want to create does not exist, otherwise it returns an error
+2) formats the data in the price list file for correct merging with the order file
+3) creates invoice data from the order file and sets prices for each item according to the price list
+4) saves the invoice file
+
+Throughout the entire operation, the app prints messages about the success of any actions or prints error messages for the user and shuts down
+
+Example of successful app execution: ![completed_successfully](https://github.com/fomaaq/excel_console_app/blob/main/imgs/completed_successfully.png)
+
+### Exit codes and error messages:
+    1. Argument input errors:
+        10001 -- The path to the order file is not entered 
+        10002 -- The path to the price list file is not entered
+        10003 -- The name of the saved invoice file is not entered
+    2. Errors with files:
+        2.1. Checking the existence of the file:
+        20101 -- A file named {file_name} already exists, enter another file name
+        20102 -- Unable to save file
+        2.2. File opening error:
+        20201 -- The data file was not found: {path}
+                    Check path to it
+        2.3. Errors of matching with the sample:
+        20301 -- The price list file does not match the sample
+        20302 -- The order file does not match the sample
+
+Examples of errors:
+|![arguments_error](https://github.com/fomaaq/excel_console_app/blob/main/imgs/arguments_error.png)|![error_already_existing_file](https://github.com/fomaaq/excel_console_app/blob/main/imgs/error_already_existing_file.png)|
+|---|---|
+|![error_match_sample](https://github.com/fomaaq/excel_console_app/blob/main/imgs/error_match_sample.png)|![file_open_error](https://github.com/fomaaq/excel_console_app/blob/main/imgs/file_open_error.png)|
+
+Detailed descriptions of modules and methods are given in the documentation
+
+-- --
+
 ## App structure
 
 - [console_app.py](https://github.com/fomaaq/excel_console_app/blob/main/console_app.py) -- the main file of app that runs it
@@ -17,62 +80,6 @@ This is a console application that uses the Pandas library to convert an order f
 - - [src/data_utils/price_formatter.py](https://github.com/fomaaq/excel_console_app/blob/main/src/data_utils/price_formatter.py) -- contains methods for preparing price list data to be combined with invoice data
 - [data/](https://github.com/fomaaq/excel_console_app/tree/main/data) -- contains excel files of the order and price list, which are samples and on which the app was launched
 - [invoice.xlsx](https://github.com/fomaaq/excel_console_app/blob/main/invoice.xlsx) -- the invoice file that was created by the app
--- --
-
-## App creation motivation
-
-I created this excel_console_app for:
-- creating a console app
-- study the library for working with dataframes
-- implementations of excel file parsing
-- simplifying the lives of my former colleagues, who will now be able to do their work faster and easier using this application
-
--- --
-
-## How to use
-
-To launch the application, you will need the order and price list files, which must necessarily match the sample
-
-The following arguments must be entered in the console:
-
-*order_path* -- path to the order file
-
-*price_list_path* -- path to the price list file
-
-*file_name* -- name of the invoice file to be created
-
-App checks that the arguments are entered and starts its work:
-1) checks that a file with the same name as you want to create does not exist, otherwise it returns an error
-2) formats the data in the price list file for correct merging with the order file
-3) creates invoice data from the order file and sets prices for each item according to the price list
-4) saves the invoice file
-
-Throughout the entire operation, the app prints messages about the success of any actions or prints error messages for the user and shuts down
-
-Example of successful app execution: ![completed_successfully](https://github.com/fomaaq/excel_console_app/blob/main/imgs/completed_successfully.png)
-
-### Errors and exit codes:
-    1. Argument input errors:
-        1.0.1. The path to the order file is not entered - 10001 
-        1.0.1. The path to the price list file is not entered - 10002 
-        1.0.1 The name of the saved invoice file is not entered - 10003 
-    2. Errors with files:
-        2.1. Checking the existence of the file:
-            2.1.1. A file named {file_name} already exists, enter another file name - 20101
-            2.1.1. Unable to save file - 20102
-        2.2. File opening error:
-            2.2.1. The data file was not found: {path}
-                   Check path to it                    - 20201
-        2.3. Errors of matching with the sample:
-            2.3.1. The price list file does not match the sample - 20301
-            2.3.2. The order file does not match the sample - 20302
-
-Examples of errors:
-|![arguments_error](https://github.com/fomaaq/excel_console_app/blob/main/imgs/arguments_error.png)|![error_already_existing_file](https://github.com/fomaaq/excel_console_app/blob/main/imgs/error_already_existing_file.png)|
-|---|---|
-|![error_match_sample](https://github.com/fomaaq/excel_console_app/blob/main/imgs/error_match_sample.png)|![file_open_error](https://github.com/fomaaq/excel_console_app/blob/main/imgs/file_open_error.png)|
-
-Detailed descriptions of modules and methods are given in the documentation
 
 -- --
 
