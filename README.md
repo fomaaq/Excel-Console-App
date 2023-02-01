@@ -49,7 +49,7 @@ App checks that the arguments are entered and starts its work:
 
 Throughout the entire operation, the app prints messages about the success of any actions or prints error messages for the user and shuts down
 
-Example of successful app execution: ![completed_successfully](...)
+Example of successful app execution: ![completed_successfully](https://github.com/fomaaq/excel_console_app/blob/main/imgs/completed_successfully.png)
 
 ### Errors and exit codes:
     1. Argument input errors:
@@ -68,9 +68,9 @@ Example of successful app execution: ![completed_successfully](...)
             2.3.2. The order file does not match the sample - 20302
 
 Examples of errors:
-|![arguments_error](...)|![error_already_existing_file](...)|
+|![arguments_error](https://github.com/fomaaq/excel_console_app/blob/main/imgs/arguments_error.png)|![error_already_existing_file](https://github.com/fomaaq/excel_console_app/blob/main/imgs/error_already_existing_file.png)|
 |---|---|
-|![error_match_sample](...)|![file_open_error](...)|
+|![error_match_sample](https://github.com/fomaaq/excel_console_app/blob/main/imgs/error_match_sample.png)|![file_open_error](https://github.com/fomaaq/excel_console_app/blob/main/imgs/file_open_error.png)|
 
 Detailed descriptions of modules and methods are given in the documentation
 
@@ -79,4 +79,4 @@ Detailed descriptions of modules and methods are given in the documentation
 ## How to run
 Python version 3.10 was used at launch
 
-The requirements are specified in the [requirements.txt](...)
+The requirements are specified in the [requirements.txt](https://github.com/fomaaq/excel_console_app/blob/main/requirements.txt)
