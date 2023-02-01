@@ -24,11 +24,9 @@ To launch the application, you will need the order and price list files, which m
 
 The following arguments must be entered in the console:
 
-    order_path — path to the order file
-
+    order_path      — path to the order file
     price_list_path — path to the price list file
-
-    file_name — name of the invoice file to be created
+    file_name       — name of the invoice file to be created
 
 App checks that the arguments are entered and starts its work:
 1) checks that a file with the same name as you want to create does not exist, otherwise it returns an error
@@ -49,20 +47,19 @@ Example of created invoice file: ![invoice.xlsx](https://github.com/fomaaq/excel
 
 ### Exit codes and error messages:
 ```
-1x — argument input errors:
-10001 — The path to the order file is not entered 
-10002 — The path to the price list file is not entered
-10003 — The name of the saved invoice file is not entered
-2x — errors with files:
-201x — checking the existence of the file:
-20101 — A file named {file_name} already exists, enter another file name
-20102 — Unable to save file
-202x — file opening error:
-20201 — The data file was not found: {path}
-        Check path to it
-203x — errors of matching with the sample:
-20301 — The price list file does not match the sample
-20302 — The order file does not match the sample
+1x         — argument input errors:
+    10001  — The path to the order file is not entered 
+    10002  — The path to the price list file is not entered
+    10003  — The name of the saved invoice file is not entered
+2x         — errors with files:
+  201x     — checking the existence of the file:
+    20101  — A file named {file_name} already exists, enter another file name
+    20102  — Unable to save file
+  202x     — file opening error:
+    20201  — The data file was not found: {path} Check path to it
+  203x     — errors of matching with the sample:
+    20301  — The price list file does not match the sample
+    20302  — The order file does not match the sample
 ```
 
 ### Examples of errors:
