@@ -1,5 +1,5 @@
 '''
-A module containing methods for working with excel files
+The module contains methods for working with excel files
 '''
 import os
 import pandas as pd

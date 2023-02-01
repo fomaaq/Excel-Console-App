@@ -3,37 +3,74 @@ This is a console application that uses the Pandas library to convert an order f
 
 -- --
 
-## Calculator structure
+## App structure
 
-- [desktop_calculator_oop.py](https://github.com/fomaaq/desktop_calc/blob/main/desktop_calculator_oop.py) -- the main file of the calculator that runs it
-- [src/](https://github.com/fomaaq/desktop_calc/tree/main/src) -- contains the main calculator configuration file and a folder with widgets:
-- - [src/caclulator.py](https://github.com/fomaaq/desktop_calc/blob/main/src/calculator.py) -- the main calculator configuration file that contains parameters, classes and methods for setting up, running and operating the calculator
-- [src/widgets/](https://github.com/fomaaq/desktop_calc/tree/main/src/widgets) -- contains calculator widgets:
-- - [src/widgets/window.py](https://github.com/fomaaq/desktop_calc/blob/main/src/widgets/window.py) -- contains classes and methods for configuring the window widget
-- - [src/widgets/label.py](https://github.com/fomaaq/desktop_calc/blob/main/src/widgets/label.py) -- ccontains classes and methods for configuring the text label widget
-- - [src/widgets/button.py](https://github.com/fomaaq/desktop_calc/blob/main/src/widgets/button.py) -- contains classes and methods for configuring the button widget
-- - [src/widgets/icon_calc.png](https://github.com/fomaaq/desktop_calc/blob/main/src/widgets/icon_calc.png) -- icon for the window widget
-- [alpha_version/desktop_calculator_old.py](https://github.com/fomaaq/desktop_calc/blob/main/alpha_version/desktop_calculator_old.py) -- alpha version of the calculator without OOP implementation
+- [console_app.py](https://github.com/fomaaq/excel_console_app/blob/main/console_app.py) -- the main file of app that runs it
+- [src/](https://github.com/fomaaq/excel_console_app/tree/main/src) -- contains the main app module and a folders with utils:
+- - [src/order_converter.py](https://github.com/fomaaq/excel_console_app/blob/main/src/order_converter.py) -- the main app module that contains methods that convert an order into an invoice
+- [src/app_utils/](https://github.com/fomaaq/excel_console_app/tree/main/src/app_utils) -- contains app utils:
+- - [src/app_utils/app_interrupter.py](https://github.com/fomaaq/excel_console_app/blob/main/src/app_utils/app_interrupter.py) -- contains a method for printing an error message and interrupting the app
+- - [src/app_utils/arguments_parser.py](https://github.com/fomaaq/excel_console_app/blob/main/src/app_utils/arguments_parser.py) -- contains methods responsible for parsing arguments passed to the console
+- [src/data_utils/](https://github.com/fomaaq/excel_console_app/tree/main/src/data_utils) -- contains data utils:
+- - [src/data_utils/excel_manager.py](https://github.com/fomaaq/excel_console_app/blob/main/src/data_utils/excel_manager.py) -- contains methods for working with excel files
+- - [src/data_utils/invoice_creator.py](https://github.com/fomaaq/excel_console_app/blob/main/src/data_utils/invoice_creator.py) -- contains methods for creating an invoice data
+- - [src/data_utils/price_formatter.py](https://github.com/fomaaq/excel_console_app/blob/main/src/data_utils/price_formatter.py) -- contains methods for preparing price list data to be combined with invoice data
+- [data/](https://github.com/fomaaq/excel_console_app/tree/main/data) -- contains excel files of the order and price list, which are samples and on which the app was launched
+- [invoice.xlsx](https://github.com/fomaaq/excel_console_app/blob/main/invoice.xlsx) -- the invoice file that was created by the app
+-- --
+
+## App creation motivation
+
+I created this excel_console_app for:
+- creating a console app
+- study the library for working with dataframes
+- implementations of excel file parsing
+- simplifying the lives of my former colleagues, who will now be able to do their work faster and easier using this application
 
 -- --
 
-## Calculator creation motivation
+## How to use
 
-I created this calculator with GUI for:
-- study library for creating a GUI on python
-- create a project with the implementation of OOP
-- implement encapsulation
+To launch the application, you will need the order and price list files, which must necessarily match the sample
 
--- --
+The following arguments must be entered in the console:
 
-## Preview
+*order_path* -- path to the order file
 
-The calculator is controlled using a graphical keyboard
-The calculator can perform basic calculations
+*price_list_path* -- path to the price list file
 
-Example of calculator operation:
+*file_name* -- name of the invoice file to be created
 
-![Demo](https://github.com/fomaaq/desktop_calc/blob/main/imgs/demo.gif)
+App checks that the arguments are entered and starts its work:
+1) checks that a file with the same name as you want to create does not exist, otherwise it returns an error
+2) formats the data in the price list file for correct merging with the order file
+3) creates invoice data from the order file and sets prices for each item according to the price list
+4) saves the invoice file
+
+Throughout the entire operation, the app prints messages about the success of any actions or prints error messages for the user and shuts down
+
+Example of successful app execution: ![completed_successfully](...)
+
+### Errors and exit codes:
+    1. Argument input errors:
+        1.0.1. The path to the order file is not entered - 10001 
+        1.0.1. The path to the price list file is not entered - 10002 
+        1.0.1 The name of the saved invoice file is not entered - 10003 
+    2. Errors with files:
+        2.1. Checking the existence of the file:
+            2.1.1. A file named {file_name} already exists, enter another file name - 20101
+            2.1.1. Unable to save file - 20102
+        2.2. File opening error:
+            2.2.1. The data file was not found: {path}
+                   Check path to it                    - 20201
+        2.3. Errors of matching with the sample:
+            2.3.1. The price list file does not match the sample - 20301
+            2.3.2. The order file does not match the sample - 20302
+
+Examples of errors:
+|![arguments_error](...)|![error_already_existing_file](...)|
+|---|---|
+|![error_match_sample](...)|![file_open_error](...)|
 
 Detailed descriptions of modules and methods are given in the documentation
 
@@ -42,4 +79,4 @@ Detailed descriptions of modules and methods are given in the documentation
 ## How to run
 Python version 3.10 was used at launch
 
-The requirements are specified in the [requirements.txt](https://github.com/fomaaq/desktop_calc/blob/main/requirements.txt)
+The requirements are specified in the [requirements.txt](...)
