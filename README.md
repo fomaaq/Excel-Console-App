@@ -5,7 +5,7 @@ This is a console application that uses the Pandas library to convert an order f
 
 ## Preview
 
-![]()
+![preview.gif](https://github.com/fomaaq/excel_console_app/blob/main/imgs/preview.gif)
 
 -- --
 
