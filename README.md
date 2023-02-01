@@ -41,6 +41,13 @@ Throughout the entire operation, the app prints messages about the success of an
 
 Example of successful app execution: ![completed_successfully](https://github.com/fomaaq/excel_console_app/blob/main/imgs/completed_successfully.png)
 
+Example of created invoice file: ![invoice.xlsx](https://github.com/fomaaq/excel_console_app/blob/main/imgs/invoice_xlsx.png)
+
+### Sample files:
+|Order file:|Price list file:|
+|---|---|
+|![order.xlsx](https://github.com/fomaaq/excel_console_app/blob/main/imgs/order_xlsx.png)|![price.xlsx](https://github.com/fomaaq/excel_console_app/blob/main/imgs/price_xlsx.png)|
+
 ### Exit codes and error messages:
     1. Argument input errors:
         10001 -- The path to the order file is not entered 
