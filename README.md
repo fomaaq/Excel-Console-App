@@ -1,5 +1,5 @@
 # excel_console_app
-This is a console application that uses the Pandas library to convert an order file into an invoice file using prices from a price list file.
+This is a console application that uses the Pandas library to convert an order file into an invoice file using prices from a price list file
 
 -- --
 
