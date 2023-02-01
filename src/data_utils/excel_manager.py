@@ -3,6 +3,7 @@ A module containing methods for working with excel files
 '''
 import os
 import pandas as pd
+import src.app_utils.app_interrupter as app_interrupter
 
 
 def check_file_exist(file_path: str):
@@ -17,8 +18,8 @@ def check_save_path_exist(file_name: str):
     Checks whether the invoice file with the entered name can be saved
     '''
     if check_file_exist(file_path=file_name):
-        print(f'A file named {file_name} already exists, enter another file name to save')
-        exit()
+        app_interrupter.interrupt_app(error_message=f'A file named {file_name} already exists, enter another file name',
+                                      exit_code=20101)
 
 
 def open_excel(path: str):
@@ -31,8 +32,8 @@ def open_excel(path: str):
         return dataframe
 
     except FileNotFoundError:
-        print(f'The data file was not found: {path}\nCheck that the file exists and the path to it')
-        exit()
+        app_interrupter.interrupt_app(error_message=f'The data file was not found: {path}\nCheck path to it',
+                                      exit_code=20201)
 
 
 def check_price_columns(price_data):
@@ -47,8 +48,8 @@ def check_price_columns(price_data):
         print('The price list matches the sample')
         pass
     else:
-        print('The price list file does not match the sample')
-        exit()
+        app_interrupter.interrupt_app(error_message='The price list file does not match the sample',
+                                      exit_code=20301)
 
 
 def check_order_columns(order_data):
@@ -67,8 +68,8 @@ def check_order_columns(order_data):
         print('The order matches the sample')
         pass
     else:
-        print('The order file does not match the sample')
-        exit()
+        app_interrupter.interrupt_app(error_message='The order file does not match the sample',
+                                      exit_code=20302)
 
 
 def save_excel(data, file_name: str):
@@ -86,5 +87,5 @@ def check_file_saved(file_name: str):
     if check_file_exist(file_name):
         print(f'File "{file_name}" saved')
     else:
-        print('Unable to save file')
-        exit()
+        app_interrupter.interrupt_app(error_message='Unable to save file',
+                                      exit_code=20102)

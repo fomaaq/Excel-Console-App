@@ -1,7 +1,7 @@
 '''
 The module contains methods for preparing price list data to be combined with invoice data
 '''
-import excel_manager
+import src.data_utils.excel_manager as excel_manager
 
 
 def format_price(price_list_path: str):

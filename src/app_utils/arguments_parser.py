@@ -14,14 +14,14 @@ def parse_arguments(args_list: list):
     for args in args_list:
         if 'order_path=' in args:
             order_path = args.split('=')[-1]
-            # TODO
+            continue
 
         if 'price_list_path=' in args:
             price_list_path = args.split('=')[-1]
-            # TODO
+            continue
 
         if 'file_name=' in args:
             file_name = args.split('=')[-1]
-            # TODO
+            continue
 
     return order_path, price_list_path, file_name

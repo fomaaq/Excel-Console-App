@@ -1,9 +1,9 @@
 '''
 The main module that contains methods that convert an order into an invoice
 '''
-import excel_manager
-import price_formatter
-import invoice_creator
+import src.data_utils.excel_manager as excel_manager
+import src.data_utils.price_formatter as price_formatter
+import src.data_utils.invoice_creator as invoice_creator
 
 
 def convert_order_to_invoice(order_path: str, price_list_path: str, file_name: str):

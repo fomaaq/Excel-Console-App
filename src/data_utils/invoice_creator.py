@@ -2,7 +2,7 @@
 The module contains methods for creating an invoice data
 '''
 
-import excel_manager
+import src.data_utils.excel_manager as excel_manager
 import pandas as pd
 
 
